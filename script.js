@@ -75,6 +75,10 @@ function addProductToBasketArray (productId) {
 function basketProductsGenerator (userBasketArray) {
     bastekProductsContainer.innerHTML = ''
 
+//    ***fragment
+
+    let userBasketFragment = $.createDocumentFragment()
+
     userBasketArray.forEach (function (product) {
 
         let basketProductContainer = $.createElement('div')
@@ -126,12 +130,17 @@ function basketProductsGenerator (userBasketArray) {
 
         basketProductContainer.append(basketProductDetailsContainer, basketProductPriceSpan, basketProductInputsContainer)
 
-        bastekProductsContainer.append(basketProductContainer)
+        // bastekProductsContainer.append(basketProductContainer)
 
         
         // console.log(bastekProductsContainer);
 
+     userBasketFragment.append(basketProductContainer)
+
+
     })
+
+    bastekProductsContainer.append(userBasketFragment)
 }
 
     function removeProductFromBasket(productId){
